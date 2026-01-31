@@ -1,0 +1,11 @@
+<h2>Teacher Panel</h2>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<p><b>Current Session:</b> {{ session }}</p>
+
+<img src="{{ url_for('static', filename='qr.png') }}" width="250">
+
+<br><br>
+<a href="/records">View Attendance Records</a>
+<br><br>
+<a href="/">Go Home</a>
