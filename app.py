@@ -74,6 +74,10 @@ def records():
 def student():
     global current_session
 
+    # Check if teacher started session
+    if current_session is None:
+        return "Attendance session not started by teacher"
+
     if request.method == 'POST':
         roll = request.form['roll']
         name = request.form['name']
@@ -81,8 +85,10 @@ def student():
 
         if device_used(ip, current_session):
             message = "This device already marked attendance!"
+
         elif already_marked(roll, current_session):
             message = "Attendance already marked for this class!"
+
         else:
             save_attendance(current_session, roll, name, ip)
             message = "Attendance marked successfully!"
