@@ -1,25 +1,52 @@
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<h2>Attendance Records</h2>
+<!DOCTYPE html>
+<html>
 
-<table border="1">
-<tr>
-    <th>Session</th>
-    <th>Roll No</th>
-    <th>Name</th>
-    <th>Time</th>
-    <th>Device IP</th>
-</tr>
+<head>
 
-{% for row in records %}
+<title>Attendance Records</title>
+
+<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+
+</head>
+
+<body>
+
+<div>
+
+<h2>📊 Attendance Records</h2>
+
+<table>
+
 <tr>
-    <td>{{row[0]}}</td>
-    <td>{{row[1]}}</td>
-    <td>{{row[2]}}</td>
-    <td>{{row[3]}}</td>
-    <td>{{row[4]}}</td>
-</tr>
+
+{% for header in records[0] %}
+
+<th>{{header}}</th>
+
 {% endfor %}
+
+</tr>
+
+{% for row in records[1:] %}
+
+<tr>
+
+{% for cell in row %}
+
+<td>{{cell}}</td>
+
+{% endfor %}
+
+</tr>
+
+{% endfor %}
+
 </table>
 
-<br>
-<a href="/">Go Home</a>
+<a class="home-btn" href="/">🏠 Home</a>
+
+</div>
+
+</body>
+
+</html>
