@@ -1,11 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Teacher Panel</title>
+
+<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+
+</head>
+
+<body>
+
+<div class="container">
+
 <h2>Teacher Panel</h2>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<p><b>Current Session:</b> {{ session }}</p>
+<p><b>Session:</b> {{session}}</p>
 
-<img src="{{ url_for('static', filename='qr.png') }}" width="250">
+<img src="{{url_for('static',filename='qr.png')}}" width="220">
 
 <br><br>
-<a href="/records">View Attendance Records</a>
-<br><br>
-<a href="/">Go Home</a>
+
+<a class="btn" href="/records">View Attendance</a>
+
+</div>
+
+</body>
+
+</html>
